@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  ViewCodeApp
+
+  Created by Matheus Lopes on 04/10/22.
+  
+*/
+"WELCOME" = "Bem-vindo!";
+"MAIN" = "Vamos se exercitar? Aqui você pode criar seu treino perfeito!";
+"LOGIN" = "Entrar";
+"SIGNUP" = "Registrar";
+"PHONE" = "Telefone";
+"SOCIAL_MEDIA_TEXT" = "Ou usando as mídias sociais";

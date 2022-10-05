@@ -42,7 +42,7 @@ class WelcomeView: UIView, CodeView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Welcome!"
+        label.text = .welcome
         label.numberOfLines = 1
         label.font = .TITLE
         label.textColor = .TITLE
@@ -54,7 +54,7 @@ class WelcomeView: UIView, CodeView {
     
     lazy var bodyLabel: UILabel = {
         let label = UILabel()
-        label.text = "Let's workout? Here you can create the perfect training!"
+        label.text = .main
         label.numberOfLines = 0
         label.font = .BODY
         label.textColor = .BODY
@@ -66,7 +66,7 @@ class WelcomeView: UIView, CodeView {
     
     lazy var phoneTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Phone"
+        textField.placeholder = .phone
         textField.textAlignment = .center
         textField.borderStyle = .roundedRect
         textField.keyboardType = .numberPad
@@ -86,8 +86,8 @@ class WelcomeView: UIView, CodeView {
         return stackView
     }()
     
-    lazy var loginButton = AppButton(style: .main, text: "Login")
-    lazy var signUpButton = AppButton(style: .secondary, text: "Sign Up")
+    lazy var loginButton = AppButton(style: .main, text: .login)
+    lazy var signUpButton = AppButton(style: .secondary, text: .signup)
     
     // MARK: - CodeView Methods
     func setupComponents() {

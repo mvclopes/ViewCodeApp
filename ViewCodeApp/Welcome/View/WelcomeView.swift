@@ -31,6 +31,21 @@ class WelcomeView: UIView, CodeView {
     }
     
     // MARK: - Components
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.keyboardDismissMode = .onDrag
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return scrollView
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     lazy var mainImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "home")
@@ -55,6 +70,18 @@ class WelcomeView: UIView, CodeView {
     lazy var bodyLabel: UILabel = {
         let label = UILabel()
         label.text = .main
+        label.numberOfLines = 0
+        label.font = .BODY
+        label.textColor = .BODY
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    lazy var socialMediaLabel: UILabel = {
+        let label = UILabel()
+        label.text = .socialMedia
         label.numberOfLines = 0
         label.font = .BODY
         label.textColor = .BODY
@@ -91,15 +118,17 @@ class WelcomeView: UIView, CodeView {
     
     // MARK: - CodeView Methods
     func setupComponents() {
-        addSubview(mainImage)
-        addSubview(titleLabel)
-        addSubview(bodyLabel)
-        addSubview(phoneTextField)
-        addSubview(buttonsStackView)
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(mainImage)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(bodyLabel)
+        contentView.addSubview(phoneTextField)
+        contentView.addSubview(buttonsStackView)
+        contentView.addSubview(socialMediaLabel)
         // Arranjando componentes dentro da pilha (StackView)
         buttonsStackView.addArrangedSubview(loginButton)
         buttonsStackView.addArrangedSubview(signUpButton)
-        
     }
     
     func setupConstraints() {
@@ -109,11 +138,25 @@ class WelcomeView: UIView, CodeView {
         //LayoutAnchor -> último e mais utilizado
         
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1),
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            
             mainImage.topAnchor.constraint(equalTo: topAnchor, constant: .VERTICAL_EXTRA_LARGE),
             mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .HORIZONTAL),
             mainImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.HORIZONTAL),
             mainImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
         ])
+        
+        let heightConstraint = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 1)
+        heightConstraint.priority = .defaultLow
+        heightConstraint.isActive = true
         
         // Labels
         titleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: .VERTICAL).isActive = true
@@ -137,6 +180,10 @@ class WelcomeView: UIView, CodeView {
         
         signUpButton.widthAnchor.constraint(equalTo: loginButton.widthAnchor, multiplier: 1).isActive = true
         signUpButton.heightAnchor.constraint(equalTo: loginButton.heightAnchor, multiplier: 1).isActive = true
+        
+        socialMediaLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.VERTICAL_LARGE).isActive = true
+        socialMediaLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .HORIZONTAL).isActive = true
+        socialMediaLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.HORIZONTAL).isActive = true
     }
     
     func setupExtraConfigurations() {

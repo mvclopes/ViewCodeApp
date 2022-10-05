@@ -33,7 +33,7 @@ class WelcomeView: UIView, CodeView {
     // MARK: - Components
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.keyboardDismissMode = .onDrag
+        scrollView.keyboardDismissMode = .interactive
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         return scrollView
@@ -148,9 +148,9 @@ class WelcomeView: UIView, CodeView {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1),
             contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
-            mainImage.topAnchor.constraint(equalTo: topAnchor, constant: .VERTICAL_EXTRA_LARGE),
-            mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .HORIZONTAL),
-            mainImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.HORIZONTAL),
+            mainImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .VERTICAL_EXTRA_LARGE),
+            mainImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .HORIZONTAL),
+            mainImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.HORIZONTAL),
             mainImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
         ])
         
@@ -181,7 +181,7 @@ class WelcomeView: UIView, CodeView {
         signUpButton.widthAnchor.constraint(equalTo: loginButton.widthAnchor, multiplier: 1).isActive = true
         signUpButton.heightAnchor.constraint(equalTo: loginButton.heightAnchor, multiplier: 1).isActive = true
         
-        socialMediaLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.VERTICAL_LARGE).isActive = true
+        socialMediaLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.VERTICAL_LARGE).isActive = true
         socialMediaLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .HORIZONTAL).isActive = true
         socialMediaLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.HORIZONTAL).isActive = true
     }

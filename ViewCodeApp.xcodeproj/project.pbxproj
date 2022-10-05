@@ -14,6 +14,8 @@
 		ACB5BCB928ECEB4F000611E7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5BCB828ECEB4F000611E7 /* WelcomeViewController.swift */; };
 		ACB5BCBB28ECECAD000611E7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5BCBA28ECECAD000611E7 /* WelcomeView.swift */; };
 		ACB5BCBF28ECEE2A000611E7 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5BCBE28ECEE2A000611E7 /* CodeView.swift */; };
+		ACB5BCC128ECF79B000611E7 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5BCC028ECF79B000611E7 /* AppStyle.swift */; };
+		ACB5BCC528ED0966000611E7 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5BCC428ED0966000611E7 /* AppButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		ACB5BCB828ECEB4F000611E7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		ACB5BCBA28ECECAD000611E7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		ACB5BCBE28ECEE2A000611E7 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		ACB5BCC028ECF79B000611E7 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		ACB5BCC428ED0966000611E7 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,9 @@
 		ACB5BCBC28ECEDF2000611E7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				ACB5BCC228ED0943000611E7 /* Components */,
 				ACB5BCBD28ECEE16000611E7 /* Protocols */,
+				ACB5BCC028ECF79B000611E7 /* AppStyle.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -108,6 +114,22 @@
 				ACB5BCBE28ECEE2A000611E7 /* CodeView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		ACB5BCC228ED0943000611E7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ACB5BCC328ED0950000611E7 /* Buttons */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		ACB5BCC328ED0950000611E7 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				ACB5BCC428ED0966000611E7 /* AppButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,7 +205,9 @@
 				ACB5BCBB28ECECAD000611E7 /* WelcomeView.swift in Sources */,
 				ACB5BCB928ECEB4F000611E7 /* WelcomeViewController.swift in Sources */,
 				ACB5BCA228ECE9D5000611E7 /* AppDelegate.swift in Sources */,
+				ACB5BCC128ECF79B000611E7 /* AppStyle.swift in Sources */,
 				ACB5BCBF28ECEE2A000611E7 /* CodeView.swift in Sources */,
+				ACB5BCC528ED0966000611E7 /* AppButton.swift in Sources */,
 				ACB5BCA428ECE9D5000611E7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -86,7 +86,7 @@ class WelcomeView: UIView, CodeView {
         return stackView
     }()
     
-    lazy var loginButton = AppButton(style: .main, text: "Login")    
+    lazy var loginButton = AppButton(style: .main, text: "Login")
     lazy var signUpButton = AppButton(style: .secondary, text: "Sign Up")
     
     // MARK: - CodeView Methods
@@ -141,7 +141,20 @@ class WelcomeView: UIView, CodeView {
     
     func setupExtraConfigurations() {
         backgroundColor = .white
+        loginButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
     }
     
+    @objc private func buttonClicked(sender: UIButton) {
+        switch sender {
+        case loginButton:
+            delegate?.loginButtonClicked(with: phoneTextField.text!)
+        case signUpButton:
+            delegate?.signUpButtonClicked()
+        default:
+            break
+        }
+        
+    }
     
 }
